@@ -12,6 +12,13 @@ az aks create \
   --node-vm-size Standard_D2s_v3 \
   --generate-ssh-keys
 ```
+# 2. Scale down Cluster
+```sh
+az aks scale \
+  --resource-group abacus-poc-jib-rg \
+  --name abacus-poc-Cluster \
+  --node-count 2
+```
 # 2. Cleanup
 ```
 az aks get-credentials --resource-group abacus-poc-jib-rg --name abacus-poc-Cluster
