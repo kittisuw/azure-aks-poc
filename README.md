@@ -33,7 +33,7 @@ az aks scale \
 ## 5. Test service http://\<external-ip\>
 ## 6. Cleanup
 ```
-az aks delete --resource-group abacus-poc-jib-rg --name abacus-poc-Cluster --yes --no-wait;
-kubectl config delete-context abacus-poc-Cluster;
-ktx;
+az aks delete --resource-group abacus-poc-jib-rg --name abacus-poc-Cluster --yes --no-wait && \
+kubectl config delete-context abacus-poc-Cluster && \
+kubectl config delete-cluster abacus-poc-Cluster
 ```
