@@ -4,14 +4,20 @@
 az login
 ```
 # 1. Create Cluster
+```sh
 az aks create \
   --resource-group abacus-poc-jib-rg \
   --name abacus-poc-Cluster \
   --node-count 3 \
   --node-vm-size Standard_D2s_v3 \
   --generate-ssh-keys
+```
 # 2. get Credentail
+```
 az aks get-credentials --resource-group abacus-poc-jib-rg --name abacus-poc-Cluster
+```
 # 3. Delete Credential
+```
 az aks delete --resource-group abacus-poc-jib-rg --name abacus-poc-Cluster --yes --no-wait
 kubectl config delete-context abacus-poc-Cluster
+```
