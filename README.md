@@ -12,19 +12,22 @@ az aks create \
   --node-vm-size Standard_D2s_v3 \
   --generate-ssh-keys;
 az aks get-credentials --resource-group abacus-poc-jib-rg --name abacus-poc-Cluster;
+k get node -o wide;
 ```
 # 2. Deploy demo application
 ```
-k apply -f hello-abacus-deployment.yaml
-kubectl get deploy
-kubectl get svc
+k apply -f hello-abacus-deployment.yaml;
+kubectl get deploy;
+kubectl get svc;
+EXTERNAL_IP=$(kubectl get svc hello-abacus-service --template="{{range .status.loadBalancer.ingress}}{{.ip}}{{end}}")
+echo "http://$EXTERNAL_IP/";
 ```
 # 2. Scale down Cluster
 ```sh
 az aks scale \
   --resource-group abacus-poc-jib-rg \
   --name abacus-poc-Cluster \
-  --node-count 2
+  --node-count 1
 ```
 # 2. Cleanup
 ```
