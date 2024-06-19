@@ -12,11 +12,11 @@ az aks create \
   --node-vm-size Standard_D2s_v3 \
   --generate-ssh-keys
 ```
-# 2. get Credentail
+# 2. get Credentials
 ```
 az aks get-credentials --resource-group abacus-poc-jib-rg --name abacus-poc-Cluster
 ```
-# 3. Delete Credential
+# 3. Delete Credentials
 ```
 az aks delete --resource-group abacus-poc-jib-rg --name abacus-poc-Cluster --yes --no-wait
 kubectl config delete-context abacus-poc-Cluster
