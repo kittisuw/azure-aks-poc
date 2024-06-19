@@ -31,12 +31,12 @@ az aks scale \
   --node-count 1
 ```
 ## 5. Test service http://\<external-ip\>
-## 6. Scale up Cluster from 1 node to 3 node #Prove Infra Scaling
+## 6. Scale up Cluster from 1 node to 3 node Back#Prove Infra Scaling
 ```sh
 az aks scale \
   --resource-group abacus-poc-jib-rg \
   --name abacus-poc-Cluster \
-  --node-count 1
+  --node-count 3
 ```
 ## 7. Test service http://\<external-ip\>
 ## 8. Cleanup
