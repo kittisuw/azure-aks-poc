@@ -13,6 +13,10 @@ az aks create \
   --generate-ssh-keys;
 az aks get-credentials --resource-group abacus-poc-jib-rg --name abacus-poc-Cluster
 ```
+# 2. Deploy demo application
+```
+k apply -f hello-abacus-deployment.yaml
+```
 # 2. Scale down Cluster
 ```sh
 az aks scale \
