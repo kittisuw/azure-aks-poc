@@ -16,6 +16,8 @@ az aks get-credentials --resource-group abacus-poc-jib-rg --name abacus-poc-Clus
 # 2. Deploy demo application
 ```
 k apply -f hello-abacus-deployment.yaml
+kubectl get deploy
+kubectl get svc
 ```
 # 2. Scale down Cluster
 ```sh
