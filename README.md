@@ -22,7 +22,7 @@ kubectl get svc;
 EXTERNAL_IP=$(kubectl get svc hello-abacus-service --template="{{range .status.loadBalancer.ingress}}{{.ip}}{{end}}")
 echo "http://$EXTERNAL_IP/";
 ```
-# 3. Test service http://<external-ip>
+# 3. Test service http://\<external-ip\>
 # 4. Scale down Cluster from 3 nodes to 1 node
 ```sh
 az aks scale \
