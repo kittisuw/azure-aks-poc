@@ -11,7 +11,7 @@ az aks create \
   --node-count 3 \
   --node-vm-size Standard_D2s_v3 \
   --generate-ssh-keys;
-az aks get-credentials --resource-group abacus-poc-jib-rg --name abacus-poc-Cluster
+az aks get-credentials --resource-group abacus-poc-jib-rg --name abacus-poc-Cluster;
 ```
 # 2. Deploy demo application
 ```
