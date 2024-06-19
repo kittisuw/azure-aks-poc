@@ -23,7 +23,8 @@ EXTERNAL_IP=$(kubectl get svc hello-abacus-service --template="{{range .status.l
 echo "http://$EXTERNAL_IP/";
 ```
 ## 3. Test service http://\<external-ip\>
-## 4. Scale down Cluster from 3 nodes to 1 node #prove HA and DR
+## 4. Scale down Cluster from 3 nodes to 1 node
+> prove HA and DR
 ```sh
 az aks scale \
   --resource-group abacus-poc-jib-rg \
