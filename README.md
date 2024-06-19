@@ -23,7 +23,7 @@ EXTERNAL_IP=$(kubectl get svc hello-abacus-service --template="{{range .status.l
 echo "http://$EXTERNAL_IP/";
 ```
 ## 3. Test service http://\<external-ip\>
-## 4. Scale down Cluster from 3 nodes to 1 node
+## 4. Scale down Cluster from 3 nodes to 1 node #prove HA and DR
 ```sh
 az aks scale \
   --resource-group abacus-poc-jib-rg \
@@ -31,7 +31,15 @@ az aks scale \
   --node-count 1
 ```
 ## 5. Test service http://\<external-ip\>
-## 6. Cleanup
+## 6. Scale up Cluster from 1 node to 3 node #Prove Infra Scaling
+```sh
+az aks scale \
+  --resource-group abacus-poc-jib-rg \
+  --name abacus-poc-Cluster \
+  --node-count 1
+```
+## 7. Test service http://\<external-ip\>
+## 8. Cleanup
 ```
 az aks delete --resource-group abacus-poc-jib-rg --name abacus-poc-Cluster --yes --no-wait && \
 kubectl config delete-context abacus-poc-Cluster && \
