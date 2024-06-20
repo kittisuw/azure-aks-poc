@@ -1,10 +1,10 @@
 # Demo AKS Support Scaling, HA, DR
 ## 0. Login
-```sh
+```shell
 az login
 ```
 ## 1. Create Cluster
-```sh
+```shellell
 az aks create \
   --resource-group abacus-poc-jib-rg \
   --name abacus-poc-Cluster \
@@ -15,7 +15,7 @@ az aks get-credentials --resource-group abacus-poc-jib-rg --name abacus-poc-Clus
 k get node -o wide;
 ```
 ## 2. Deploy demo application
-```sh
+```shell
 k apply -f hello-abacus-deployment.yaml;
 kubectl get deploy;
 kubectl get svc;
@@ -25,7 +25,7 @@ echo "http://$EXTERNAL_IP/";
 ## 3. Test service http://\<external-ip\>
 ## 4. Scale down Cluster from 3 nodes to 1 node
 > prove HA and DR
-```sh
+```shell
 az aks scale \
   --resource-group abacus-poc-jib-rg \
   --name abacus-poc-Cluster \
@@ -34,7 +34,7 @@ az aks scale \
 ## 5. Test service http://\<external-ip\>
 ## 6. Scale up Cluster from 1 node to 3 node Back
 > Prove Infra Scaling
-```sh
+```shell
 az aks scale \
   --resource-group abacus-poc-jib-rg \
   --name abacus-poc-Cluster \
