@@ -20,7 +20,7 @@ k get node -o wide;
 k apply -f hello-abacus-deployment.yaml;
 kubectl get deploy;
 kubectl get svc;
-sleep 5;
+sleep 10;
 EXTERNAL_IP=$(kubectl get svc hello-abacus-service --template="{{range .status.loadBalancer.ingress}}{{.ip}}{{end}}")
 echo "http://$EXTERNAL_IP/";
 ```
