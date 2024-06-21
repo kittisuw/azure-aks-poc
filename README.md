@@ -10,6 +10,7 @@ az aks create \
   --name abacus-poc-Cluster \
   --node-count 3 \
   --node-vm-size Standard_D2s_v3 \
+  --zones 1 2 3 \
   --generate-ssh-keys;
 az aks get-credentials --resource-group abacus-poc-jib-rg --name abacus-poc-Cluster;
 k get node -o wide;
@@ -19,6 +20,7 @@ k get node -o wide;
 k apply -f hello-abacus-deployment.yaml;
 kubectl get deploy;
 kubectl get svc;
+sleep 5;
 EXTERNAL_IP=$(kubectl get svc hello-abacus-service --template="{{range .status.loadBalancer.ingress}}{{.ip}}{{end}}")
 echo "http://$EXTERNAL_IP/";
 ```
