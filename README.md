@@ -21,7 +21,7 @@ sleep 10;
 EXTERNAL_IP=$(kubectl get svc hello-abacus-service --template="{{range .status.loadBalancer.ingress}}{{.ip}}{{end}}")
 echo "http://$EXTERNAL_IP/";
 ```
-## 0.2 Test service http://\<external-ip\>
+test service http://\<external-ip\>
 ## 1. Scale down Cluster from 3 nodes to 1 node
 > prove HA and DR
 ```shell
