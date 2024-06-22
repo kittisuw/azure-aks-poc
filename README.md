@@ -1,10 +1,7 @@
 # Demo AKS Support Scaling, HA, DR
-## 0. Login
+## 0. Create Cluster
 ```shell
 az login
-```
-## 0. Create Cluster
-```shellell
 az aks create \
   --resource-group abacus-poc-jib-rg \
   --name abacus-poc-Cluster \
