@@ -16,8 +16,7 @@ k get node -o wide;
 #### 0.2 Deploy demo application
 ```shell
 k apply -f hello-abacus-deployment.yaml;
-kubectl get deploy;
-kubectl get svc;
+k get deploy, svc;
 sleep 10;
 EXTERNAL_IP=$(kubectl get svc hello-abacus-service --template="{{range .status.loadBalancer.ingress}}{{.ip}}{{end}}")
 echo "http://$EXTERNAL_IP/";
