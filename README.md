@@ -3,7 +3,7 @@
 ```shell
 az login
 ```
-## 1. Create Cluster
+## 0. Create Cluster
 ```shellell
 az aks create \
   --resource-group abacus-poc-jib-rg \
@@ -15,7 +15,7 @@ az aks create \
 az aks get-credentials --resource-group abacus-poc-jib-rg --name abacus-poc-Cluster;
 k get node -o wide;
 ```
-## 2. Deploy demo application
+## 0.1 Deploy demo application
 ```shell
 k apply -f hello-abacus-deployment.yaml;
 kubectl get deploy;
@@ -24,17 +24,16 @@ sleep 10;
 EXTERNAL_IP=$(kubectl get svc hello-abacus-service --template="{{range .status.loadBalancer.ingress}}{{.ip}}{{end}}")
 echo "http://$EXTERNAL_IP/";
 ```
-## 3. Test service http://\<external-ip\>
-## 4. Scale down Cluster from 3 nodes to 1 node
+## 0.2 Test service http://\<external-ip\>
+## 1. Scale down Cluster from 3 nodes to 1 node
 > prove HA and DR
 ```shell
-az aks scale \
-  --resource-group abacus-poc-jib-rg \
-  --name abacus-poc-Cluster \
-  --node-count 1
+k get node -o wide
+k drain <node> --ignore-daemonsets --delete-local-data
+k cordon <node>
 ```
-## 5. Test service http://\<external-ip\>
-## 6. Scale up Cluster from 1 node to 3 node Back
+And Test service http://\<external-ip\>
+## 2.1 Manual Scale out node from 1 to 3
 > Prove Infra Scaling
 ```shell
 az aks scale \
@@ -42,7 +41,15 @@ az aks scale \
   --name abacus-poc-Cluster \
   --node-count 3
 ```
-## 7. Test service http://\<external-ip\>
+And Test service http://\<external-ip\>
+
+## 2.2 Auto Scale node by using Cluster Auto Scaller
+```shell
+#Scale Down to 1 node Back
+set min 1 max 3
+# Genarate workload
+
+```
 ## 8. Cleanup
 ```
 az aks delete --resource-group abacus-poc-jib-rg --name abacus-poc-Cluster --yes --no-wait && \
