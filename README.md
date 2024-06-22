@@ -22,7 +22,7 @@ sleep 10;
 EXTERNAL_IP=$(kubectl get svc hello-abacus-service --template="{{range .status.loadBalancer.ingress}}{{.ip}}{{end}}")
 echo "http://$EXTERNAL_IP/";
 ```
-test service http://\<external-ip\>
+and test service http://\<external-ip\>
 ## 1. Scale down Cluster from 3 nodes to 1 node
 > prove HA and DR
 ```shell
@@ -30,7 +30,7 @@ k get node -o wide
 k drain <node> --ignore-daemonsets --delete-local-data
 k cordon <node>
 ```
-And Test service http://\<external-ip\>
+and Test service http://\<external-ip\>
 ## 2.1 Manual Scale out node from 1 to 3
 > Prove Infra Scaling
 ```shell
@@ -39,7 +39,7 @@ az aks scale \
   --name abacus-poc-Cluster \
   --node-count 3
 ```
-And Test service http://\<external-ip\>
+and Test service http://\<external-ip\>
 
 ## 2.2 Auto Scale node by using Cluster Auto Scaller
 ```shell
@@ -48,6 +48,7 @@ set min 1 max 3
 # Genarate workload
 
 ```
+and Test service http://\<external-ip\>
 ## 8. Cleanup
 ```
 az aks delete --resource-group abacus-poc-jib-rg --name abacus-poc-Cluster --yes --no-wait && \
