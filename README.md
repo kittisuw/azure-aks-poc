@@ -13,7 +13,7 @@ az aks create \
 az aks get-credentials --resource-group abacus-poc-jib-rg --name abacus-poc-Cluster;
 k get node -o wide;
 ```
-#### 0.2 Deploy demo application
+#### 0.2 Deploy Demo Application
 ```shell
 k apply -f hello-abacus-deployment.yaml;
 k get deploy, svc;
