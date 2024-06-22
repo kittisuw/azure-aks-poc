@@ -1,6 +1,6 @@
 # Demo AKS Support Scaling, HA, DR
 ##  Prerequisite 
-### 0.1 Create Cluster
+#### 0.1 Create Cluster
 ```shell
 az login
 az aks create \
@@ -13,7 +13,7 @@ az aks create \
 az aks get-credentials --resource-group abacus-poc-jib-rg --name abacus-poc-Cluster;
 k get node -o wide;
 ```
-### 0.2 Deploy demo application
+#### 0.2 Deploy demo application
 ```shell
 k apply -f hello-abacus-deployment.yaml;
 kubectl get deploy;
