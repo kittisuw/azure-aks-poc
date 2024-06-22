@@ -42,8 +42,14 @@ and Test service http://\<external-ip\>
 
 ## 2.2 Auto Scale node by using Cluster Auto Scaller
 ```shell
-#Scale Down to 1 node Back
-set min 1 max 3
+#Scale Cluster Auto Scaller min 1  max 3
+az aks nodepool update \
+  --resource-group abacus-poc-jib-rg \
+  --cluster-name abacus-poc-Cluster \
+  --name "nodepool1" \
+  --min-count 1 \
+  --max-count 3 \
+  --enable-cluster-autoscaler
 # Genarate workload
 
 ```
