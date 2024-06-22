@@ -1,6 +1,6 @@
 # Demo AKS Support Scaling, HA, DR
 ##  Prerequisite 
-#### 0.1 Create Cluster
+#### 0.1 Create Cluster by Fix 3 Worker nodes
 ```shell
 az login
 az aks create \
