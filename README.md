@@ -7,7 +7,7 @@ az aks create \
   --resource-group abacus-poc-jib-rg \
   --name abacus-poc-Cluster \
   --node-count 3 \
-  --node-vm-size Standard_D2s_v3 \
+  --node-vm-size Standard_B2s \
   --zones 1 2 3 \
   --generate-ssh-keys;
 az aks get-credentials --resource-group abacus-poc-jib-rg --name abacus-poc-Cluster;
