@@ -43,17 +43,19 @@ k delete po -l app=abacus
 k get po -o wide
 ```
 and Test service http://\<external-ip\>
-## 2.1 Manual Scale out node from 3 to 5
+## 2.1 Manual Scale out node from 3 to 4
 > Prove Infra Scaling
 ```shell
 az aks scale \
   --resource-group abacus-poc-jib-rg \
   --name abacus-poc-Cluster \
-  --node-count 5
+  --node-count 4
+  
+k get node -o wide
 ```
 and Test service http://\<external-ip\>
 
-## 2.2 Auto Scale node by using Cluster Auto Scaller
+## 2.2 Auto Scale out node by using Cluster Auto Scaller
 ```shell
 #Scale Cluster Auto Scaller min 1  max 3
 az aks nodepool update \
