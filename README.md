@@ -12,6 +12,7 @@ az aks create \
   --generate-ssh-keys;
 az aks get-credentials --resource-group abacus-poc-jib-rg --name abacus-poc-Cluster;
 k get node -o wide;
+k top node;
 ```
 #### 0.2 Deploy Demo Application
 ```shell
