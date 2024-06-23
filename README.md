@@ -32,8 +32,8 @@ k get po -o wide
 # Check Node
 k get node -o wide
 #Disable schedule
-k drain <node> --ignore-daemonsets --delete-local-data
 k cordon <node>
+k drain <node> --ignore-daemonsets --delete-emptydir-data
 # Enable schedule
 k uncordon <node>
 k get node -o wide
