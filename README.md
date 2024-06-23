@@ -27,18 +27,29 @@ and test service http://\<external-ip\>
 ## 1. Scale down Cluster from 3 nodes to 1 node
 > prove HA and DR
 ```shell
+# Check Application
+k get po -o wide
+# Check Node
 k get node -o wide
+#Disable schedule
 k drain <node> --ignore-daemonsets --delete-local-data
 k cordon <node>
+# Enable schedule
+k uncordon <node>
+k get node -o wide
+# Check Application
+k get po -o wide
+k delete po -l app=abacus
+k get po -o wide
 ```
 and Test service http://\<external-ip\>
-## 2.1 Manual Scale out node from 1 to 3
+## 2.1 Manual Scale out node from 3 to 5
 > Prove Infra Scaling
 ```shell
 az aks scale \
   --resource-group abacus-poc-jib-rg \
   --name abacus-poc-Cluster \
-  --node-count 3
+  --node-count 5
 ```
 and Test service http://\<external-ip\>
 
