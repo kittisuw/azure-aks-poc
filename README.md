@@ -67,9 +67,9 @@ az aks nodepool update \
   --enable-cluster-autoscaler
 ```
 > How Auto Scaller work ?
->  1. Pod Resource Requests
->  2. Current Node status shoud be "Ready"
->  3. Pending Pod schedulling
+>  1. Pod Resource Requests Eg. CPU,MEMORY Request
+>  2. Current Node "STAUTUS: Ready"
+>  3. Pending Pod schedulling "PodScheduled: False"
 
 and Test service http://\<external-ip\>
 ## 8. Cleanup
