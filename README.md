@@ -50,12 +50,12 @@ az aks scale \
   --resource-group abacus-poc-jib-rg \
   --name abacus-poc-Cluster \
   --node-count 4
-  
+
 k get node -o wide
 ```
 and Test service http://\<external-ip\>
 
-## 2.2 Auto Scale out node by using Cluster Auto Scaller
+## 2.2 Auto Scale node by using Cluster Auto Scaller
 ```shell
 #Scale Cluster Auto Scaller min 1  max 3
 az aks nodepool update \
@@ -65,9 +65,12 @@ az aks nodepool update \
   --min-count 1 \
   --max-count 3 \
   --enable-cluster-autoscaler
-# Genarate workload
-
 ```
+> How Auto Scaller work ?
+>  1. Pod Resource Requests
+>  2. Current Node status shoud be "Ready"
+>  3. Pending Pod schedulling
+
 and Test service http://\<external-ip\>
 ## 8. Cleanup
 ```
