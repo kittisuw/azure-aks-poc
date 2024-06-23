@@ -66,8 +66,8 @@ az aks nodepool update \
   --max-count 3 \
   --enable-cluster-autoscaler
 ```
-> How Auto Scaller work ?
->  1. Pod Resource Requests Eg. CPU,MEMORY Request
+> How Cluster Autoscaler work ?
+>  1. Pod Resource Requests
 >  2. Current Node "STAUTUS: Ready"
 >  3. Pending Pod schedulling "PodScheduled: False"
 
