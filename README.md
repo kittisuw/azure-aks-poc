@@ -21,7 +21,7 @@ k get deploy;
 sleep 10;
 EXTERNAL_IP=$(kubectl get svc hello-abacus-service --template="{{range .status.loadBalancer.ingress}}{{.ip}}{{end}}")
 k get svc;
-echo "http://$EXTERNAL_IP/";
+echo "http://$EXTERNAL_IP/"
 ```
 and test service http://\<external-ip\>
 ## 1. Scale down Cluster from 3 nodes to 1 node
