@@ -3,6 +3,8 @@
 #### 0.1 Create Cluster by Fix 3 Worker nodes
 ```shell
 az login
+```
+```shell
 az aks create \
   --resource-group abacus-poc-jib-rg \
   --name abacus-poc-Cluster \
