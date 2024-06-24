@@ -12,6 +12,16 @@ spec:
       labels:
         app: abacus
     spec:
+      affinity:
+        podAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            - labelSelector:
+                matchExpressions:
+                  - key: app
+                    operator: In
+                    values:
+                      - abacus
+              topologyKey: "kubernetes.io/hostname"
       containers:
       - name: abacus
         image: kittisuw/hello-abacus:latest
